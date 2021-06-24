@@ -90,8 +90,18 @@ public class Main {
 
     // Problem 02 - Rotate Left k Cells
     public static void rotateLeft(int[] arr, int k) {
-        for (int i = 0; i < arr.length - k; i++) {
-            swap(arr, i, i + k);
+        int[] temp = new int[k];
+        for (int i = 0; i < k; i++) {
+            temp[i] = arr[i];
+        }
+        int ptr = 0;;
+        for (int i = 0; i < arr.length; i++) {
+            if (i < arr.length - k) {
+                arr[i] = arr[i + k];
+            } else {
+                arr[i] = temp[ptr];
+                ptr++;
+            }
         }
     }
 
@@ -248,6 +258,7 @@ public class Main {
 
     // Problem 03
     public static void musicalChairGame() {
-        // TO DO
+        int[] participants = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int numberOfParticipants = 7;
     }
 }
