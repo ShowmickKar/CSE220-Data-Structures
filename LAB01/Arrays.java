@@ -77,14 +77,14 @@ public class Main {
     }
 
     /* Helper Methods */
-    public static void print(int[] arr) {
+    private static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
     }
 
-    public static void swap(int[] arr, int i, int j) {
+    private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -270,7 +270,7 @@ public class Main {
         }
         return result;
     }
-
+    // Helper method for task 3
     private static void rotateClockwise(int[] arr, int n) {
         int lastElement = arr[n - 1];
         for (int i = n - 1; i > 0; i--) {
