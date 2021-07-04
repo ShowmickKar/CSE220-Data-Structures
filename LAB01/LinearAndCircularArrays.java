@@ -1,3 +1,10 @@
+/*
+
+CSE220 - Data Structures
+LAB01 - Linear and Circular Arrays
+
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -59,7 +66,7 @@ public class Main {
         System.out.println(repetition(arr2));
         /* Circular Arrays */
         // 1
-        System.out.println("Circular Arrays");
+        System.out.println("Circular Arrays: ");
         System.out.println("Problem 1: Palindrome");
         arr1 = new int[]{20, 10, 0, 0, 0, 10, 20, 30};
         arr2 = new int[]{10, 20, 0, 0, 0, 10, 20, 30};
@@ -109,7 +116,6 @@ public class Main {
             temp[i] = arr[i];
         }
         int ptr = 0;
-        ;
         for (int i = 0; i < arr.length; i++) {
             if (i < arr.length - k) {
                 arr[i] = arr[i + k];
@@ -270,6 +276,7 @@ public class Main {
         }
         return result;
     }
+
     // Helper method for task 3
     private static void rotateClockwise(int[] arr, int n) {
         int lastElement = arr[n - 1];
