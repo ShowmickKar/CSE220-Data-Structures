@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 
-public class Main {
+public class Array {
     public static void main(String[] args) {
         /* Linear Arrays */
         // 1
