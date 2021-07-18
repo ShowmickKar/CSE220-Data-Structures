@@ -4,26 +4,31 @@ public class LinkedList {
     Node head;
 
     public LinkedList(int[] arr) {
-        Node dummy = new Node(0);
-        Node current = dummy;
-        for (int i = 0; i < arr.length; i++) {
-            current.next = new Node(arr[i]);
-            current = current.next;
+        try {
+            if (arr.length < 1) throw new IndexOutOfBoundsException();
+            Node dummy = new Node(0);
+            Node current = dummy;
+            for (int i = 0; i < arr.length; i++) {
+                current.next = new Node(arr[i]);
+                current = current.next;
+            }
+            head = dummy.next;
+        } catch (Exception e) {
+            System.out.println(e);
         }
-        head = dummy.next;
     }
 
     public LinkedList() {
         head = null;
     }
 
-    public boolean empty() {
+    public boolean isEmpty() {
         return head == null;
     }
 
     public void showList() {
-        if (empty()) {
-            System.out.println("Empty");
+        if (isEmpty()) {
+            System.out.println("Empty List");
             return;
         }
         for (Node current = head; current != null; current = current.next) {
@@ -33,13 +38,16 @@ public class LinkedList {
     }
 
     public void clear() {
-        if (empty()) {
+        if (isEmpty()) {
             return;
         }
         head = null;
     }
 
     public void insert(Node newElement) {
+        if (head == null) {
+            head = newElement;
+        }
         for (Node current = head; current != null; current = current.next) {
             if (current.val == newElement.val) {
                 return;
@@ -50,38 +58,48 @@ public class LinkedList {
         }
     }
 
-    public void insert(Node newElement, int index) {
-        if (empty()) {
-            return;
-        }
-        int length = 0;
-        for (Node current = head; current != null; current = current.next) {
-            length++;
-            if (current.val == newElement.val || length >= index) {
-                return;
+    public void insert(int newElement, int index) {
+        try {
+            Node newNode = new Node(newElement);
+            if (index == 0) {
+                newNode.next = head;
+                head = newNode;
             }
-        }
-        int i = 0;
-        for (Node current = head; current != null; current = current.next) {
-            if (i == index) {
-                newElement.next = current.next;
-                current.next = newElement;
-                return;
+            int i = 0;
+            for (Node current = head; current != null; current = current.next) {
+                if (i == index - 1) {
+                    newNode.next = current.next;
+                    current.next = newNode;
+                    return;
+                }
+                i++;
             }
-            i++;
+            throw new IndexOutOfBoundsException();
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Index is bigger than Linked List Length");
         }
     }
 
-    public Node remove(int deleteKey) {
-        if (empty()) return null;
-        for (Node current = head; current != null; current = current.next) {
-            if (current.next.val == deleteKey) {
-                Node deletedNode = current.next;
-                current.next = current.next.next;
-                return deletedNode;
+    public int remove(int deleteKey) {
+        try {
+            if (isEmpty()) return -1;
+            if (head.val == deleteKey) {
+                head = head.next;
+                return deleteKey;
             }
+            for (Node current = head; current != null; current = current.next) {
+                if (current.next.val == deleteKey) {
+                    Node deletedNode = current.next;
+                    current.next = current.next.next;
+                    return deletedNode.val;
+                }
+            }
+            throw new IndexOutOfBoundsException();
+        } catch (Exception e) {
+            System.out.println("key not found in the List");
         }
-        return null;
+        return -1;
     }
 
     public LinkedList findEvenNumbers() {
@@ -110,7 +128,7 @@ public class LinkedList {
     public void reverse() {
         Node previous = null;
         Node current = head;
-        while (current.next != null) {
+        while (current != null) {
             Node after = current.next;
             current.next = previous;
             previous = current;
@@ -150,31 +168,21 @@ public class LinkedList {
                         current.val = current.next.val;
                     }
                 }
-
             }
         } else {
             for (int i = 0; i < k; i++) {
-                Node runner = head.next;
-                Node walker = head;
-                while (runner != null) {
-                    if (runner.next == null) {
-                        head.val = runner.val;
+                Node current = head.next;
+                int previous = head.val;
+                while (current != null) {
+                    if (current.next == null) {
+                        head.val = current.val;
                     }
-                    runner.val = walker.val;
-                    runner = runner.next;
-                    walker = walker.next;
+                    int temp = current.val;
+                    current.val = previous;
+                    previous = temp;
+                    current = current.next;
                 }
             }
-        }
-    }
-
-    static class Node {
-        int val;
-        Node next;
-
-        public Node(int val) {
-            this.val = val;
-            next = null;
         }
     }
 }
