@@ -1,3 +1,5 @@
+import java.util.EmptyStackException;
+
 public class DoublyLinkedList {
     Node head;
 
@@ -7,7 +9,10 @@ public class DoublyLinkedList {
      * @param arr
      */
     public DoublyLinkedList(int[] arr) {
-        if (arr.length == 0) return;
+        if (arr.length == 0) {
+            head = null;
+            return;
+        }
         head = new Node(arr[0]);
         Node dummyHead = head;
         for (int i = 1; i < arr.length; i++) {
@@ -28,17 +33,20 @@ public class DoublyLinkedList {
      * Displays the Doubly Linked List on Console
      */
     public void showList() {
-        if (isEmpty()) {
+        try {
+            if (isEmpty()) {
+                throw new EmptyStackException();
+            }
+            Node current = head;
+            while (true) {
+                System.out.print(current.val + " ");
+                current = current.next;
+                if (current == head) break;
+            }
+            System.out.println();
+        } catch (EmptyStackException e) {
             System.out.println("Empty List");
-            return;
         }
-        Node current = head;
-        while (true) {
-            System.out.print(current.val + " ");
-            current = current.next;
-            if (current == head) break;
-        }
-        System.out.println();
     }
 
     /**
@@ -50,21 +58,21 @@ public class DoublyLinkedList {
     public void insert(Node newElement) {
         if (isEmpty()) {
             head = newElement;
-            head.previous = newElement;
-            head.next = newElement;
+            return;
         }
         Node current = head;
-        while (current.next != head) {
-            if (current.val == newElement.val) {
+        while (true) {
+            if (current.val == newElement.val || current.next.val == newElement.val) {
                 return;
             }
             current = current.next;
+            if (current.next == head) {
+                current.next = newElement;
+                newElement.previous = current;
+                newElement.next = head;
+                head.previous = newElement;
+            }
         }
-        if (current.val == newElement.val) return;
-        current.next = newElement;
-        newElement.previous = current;
-        newElement.next = head;
-        head.previous = newElement;
     }
 
     /**
@@ -86,21 +94,24 @@ public class DoublyLinkedList {
         }
         int i = 0;
         Node current = head;
-        while (true) {
-            if (current.val == newElement) return;
-            if (current == head && i > 0) {
-                // Invalid Index
-                return;
+        try {
+            while (true) {
+                if (current.val == newElement) return;
+                if (current == head && i > 0) {
+                    throw new IndexOutOfBoundsException();
+                }
+                if (i + 1 == index) {
+                    node.previous = current;
+                    current.next.previous = node;
+                    node.next = current.next;
+                    current.next = node;
+                    return;
+                }
+                current = current.next;
+                i += 1;
             }
-            if (i + 1 == index) {
-                node.previous = current;
-                current.next.previous = node;
-                node.next = current.next;
-                current.next = node;
-                return;
-            }
-            current = current.next;
-            i += 1;
+        } catch(IndexOutOfBoundsException e) {
+            System.out.println("Invalid Index");
         }
     }
 
@@ -110,24 +121,29 @@ public class DoublyLinkedList {
      * @param index
      */
     void remove(int index) {
-        if (isEmpty()) return;
-        Node current = head;
-        int i = 0;
-        while (true) {
-            if (i == index) {
-                current.previous.next = current.next;
-                current.next.previous = current.previous;
-                if (i == 0) {
-                    head = current.next;
+        try {
+            if (isEmpty()) throw new EmptyStackException();
+            Node current = head;
+            int i = 0;
+            while (true) {
+                if (i == index) {
+                    current.previous.next = current.next;
+                    current.next.previous = current.previous;
+                    if (i == 0) {
+                        head = current.next;
+                    }
+                    return;
                 }
-                return;
+                current = current.next;
+                if (current == head) {
+                    throw new IndexOutOfBoundsException();
+                }
+                i++;
             }
-            current = current.next;
-            if (current == head) {
-                // Index out of Bound
-                return;
-            }
-            i += 1;
+        } catch (EmptyStackException e) {
+            System.out.println("List is empty");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Invalid Index");
         }
     }
 
@@ -136,22 +152,27 @@ public class DoublyLinkedList {
      * @return deleted Node value
      */
     public int removeKey(int deleteKey) {
-        if (isEmpty()) return 0;
-        Node current = head;
-        while (true) {
-            if (current.val == deleteKey) {
-                current.previous.next = current.next;
-                current.next.previous = current.previous;
-                if (current == head) {
-                    head = current.next;
+        try {
+            if (isEmpty()) throw new EmptyStackException();
+            Node current = head;
+            while (true) {
+                if (current.val == deleteKey) {
+                    current.previous.next = current.next;
+                    current.next.previous = current.previous;
+                    if (current == head) {
+                        head = current.next;
+                    }
+                    return deleteKey;
                 }
-                return deleteKey;
+                current = current.next;
+                if (current == head) {
+                    break;
+                }
             }
-            current = current.next;
-            if (current == head) {
-                break;
-            }
+            return (current.val == deleteKey ? deleteKey : 0); // key is not present in the list
+        } catch (Exception e) {
+            System.out.println("List is empty");
         }
-        return (current.val == deleteKey ? deleteKey : 0); // key is not present in the list
+        return 0;
     }
 }
