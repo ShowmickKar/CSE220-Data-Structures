@@ -1,5 +1,5 @@
 /*
-    CSE220: Dat Structures
+    CSE220: Data Structures
     LAB04: Parenthesis balancing using Stacks
  */
 
