@@ -1,4 +1,4 @@
-public class Main {
+public class Tester {
 
     public static boolean validClosing(char opening, char closing) {
         return (opening == '(' && closing == ')') || (opening == '{' && closing == '}') || (opening == '[' && closing == ']');
