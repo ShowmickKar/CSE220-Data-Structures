@@ -1,3 +1,8 @@
+/*
+    CSE220: Dat Structures
+    LAB04: Parenthesis balancing using Stacks
+ */
+
 public class Tester {
 
     public static boolean validClosing(char opening, char closing) {
