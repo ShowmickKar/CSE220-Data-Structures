@@ -5,6 +5,11 @@ public class ListStack<T> implements Stack<T> {
     private StackNode top = null;
     private final int maxSize = 100;
 
+    /**
+     * pushes a new element to the stack
+     *
+     * @param element
+     */
     @Override
     public void push(T element) {
         try {
@@ -20,6 +25,9 @@ public class ListStack<T> implements Stack<T> {
         }
     }
 
+    /**
+     * pops the last element from the stack
+     */
     @Override
     public void pop() {
         try {
@@ -33,11 +41,17 @@ public class ListStack<T> implements Stack<T> {
         }
     }
 
+    /**
+     * @return the value of the last element of the stacks
+     */
     @Override
     public T peek() {
         return (T) top.val;
     }
 
+    /**
+     * @return true if the stack is empty
+     */
     @Override
     public boolean isEmpty() {
         return top == null;
