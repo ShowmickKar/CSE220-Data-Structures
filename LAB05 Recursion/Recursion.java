@@ -105,6 +105,7 @@ public class Recursion {
         }
         System.out.println();
     }
+    
     public static void printPattern2(int n, int gap) {
         if (n == 0) return;
         printPattern2(n - 1, gap + 1);
