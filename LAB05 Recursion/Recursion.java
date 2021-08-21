@@ -36,7 +36,7 @@ public class Recursion {
 //            System.out.println(hocBuilder(i));
 //        }
 //        printPattern1(10);
-//        printPattern2(5, 0);
+//        printPattern2(10, 0);
 
     }
 
@@ -97,24 +97,30 @@ public class Recursion {
         return 5 + hocBuilder(height - 1);
     }
 
+    private static void printGap(int n) {
+        if (n == 0) return;
+        printGap(n - 1);
+        System.out.print("  ");
+    }
+
+    private static void printRow(int n) {
+        if (n == 0) return;
+        printRow(n - 1);
+        System.out.print(n + " ");
+    }
+
     public static void printPattern1(int n) {
         if (n == 0) return;
         printPattern1(n - 1);
-        for (int i = 0; i < n; i++) {
-            System.out.print(i + 1 + " ");
-        }
+        printRow(n);
         System.out.println();
     }
-    
+
     public static void printPattern2(int n, int gap) {
         if (n == 0) return;
         printPattern2(n - 1, gap + 1);
-        for (int i = 0; i < gap; i++) {
-            System.out.print("  ");
-        }
-        for (int i = 0; i < n; i++) {
-            System.out.print(i + 1 + " ");
-        }
+        printGap(gap);
+        printRow(n);
         System.out.println();
     }
 }
