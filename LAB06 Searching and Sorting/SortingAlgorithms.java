@@ -47,7 +47,9 @@ public class SortingAlgorithms {
 //        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
 //        s.recursiveSelectionSort(arr, 0);
 //        s.print(arr);
-//        System.out.println(s.binarySearch(arr, 0, arr.length - 1, 6));
+//        System.out.println(s.binarySearch(arr, , arr.length - 1, 6));
+//        int n = 13;
+//        System.out.println(s.nThFibonacci(n));
     }
 
     private void print(int[] arr) {
@@ -168,6 +170,18 @@ public class SortingAlgorithms {
             return binarySearch(arr, mid + 1, j, target);
         }
         return binarySearch(arr, i, (mid - 1), target);
+    }
+
+    public int nThFibonacci(int n) {
+        int[] memo = new int[n];
+        return nThFibonacciHelper(n - 1, memo);
+    }
+
+    private int nThFibonacciHelper(int n, int[] memo) {
+        if (n < 2) return n;
+        if (memo[n] > 0) return memo[n];
+        memo[n] = nThFibonacciHelper(n - 1, memo) + nThFibonacciHelper(n - 2, memo);
+        return memo[n];
     }
 }
 
