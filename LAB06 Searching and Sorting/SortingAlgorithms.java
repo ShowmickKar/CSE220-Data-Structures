@@ -103,7 +103,7 @@ public class SortingAlgorithms {
     }
 
     private void print(DoublyNode head) {
-        System.out.print("null ");
+        System.out.print("null <-> ");
         for (DoublyNode cur = head; cur != null; cur = cur.next) {
             System.out.print(cur.val + " <-> ");
         }
