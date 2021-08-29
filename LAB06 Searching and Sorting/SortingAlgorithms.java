@@ -1,3 +1,8 @@
+/*
+    CSE220: Data Structures
+    LAB06: Searching and Sorting Algorithms
+ */
+
 public class SortingAlgorithms {
     public static void main(String[] args) {
         int[] arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
