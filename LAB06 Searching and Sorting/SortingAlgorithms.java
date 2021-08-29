@@ -2,54 +2,90 @@ public class SortingAlgorithms {
     public static void main(String[] args) {
         int[] arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
         SortingAlgorithms s = new SortingAlgorithms();
-//        s.print(arr);
-//        s.recursiveSelectionSort(arr, 0);
-//        s.print(arr);
-//        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
-//        s.print(arr);
-//        s.recursiveInsertionSort(arr, 1);
-//        s.print(arr);
-//        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
-//        Node head = new Node(0);
-//        Node dummy = head;
-//        for (int i = 0; i < arr.length; i++) {
-//            dummy.next = new Node(arr[i]);
-//            dummy = dummy.next;
-//        }
-//        head = head.next;
-//        s.print(head);
-//        s.singlyListBubbleSort(head);
-//        s.print(head);
-//        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
-//        Node head = new Node(0);
-//        Node dummy = head;
-//        for (int i = 0; i < arr.length; i++) {
-//            dummy.next = new Node(arr[i]);
-//            dummy = dummy.next;
-//        }
-//        head = head.next;
-//        s.print(head);
-//        s.singlyListSelectionSort(head);
-//        s.print(head);
-//        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
-//        DoublyNode head = new DoublyNode(0);
-//        DoublyNode dummy = head;
-//        for (int i = 0; i < arr.length; i++) {
-//            dummy.next =  new DoublyNode(arr[i]);
-//            dummy.next.prev = dummy;
-//            dummy = dummy.next;
-//        }
-//        head = head.next;
-//        head.prev = null;
-//        s.print(head);
-//        s.doublyListInsertionSort(head);
-//        s.print(head);
-//        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
-//        s.recursiveSelectionSort(arr, 0);
-//        s.print(arr);
-//        System.out.println(s.binarySearch(arr, , arr.length - 1, 6));
-//        int n = 13;
-//        System.out.println(s.nThFibonacci(n));
+        System.out.println("#################################################");
+        System.out.println("Task 1: Sort and array Recursively using  Selection Sort algorithm");
+        System.out.print("Unsorted array: ");
+        s.print(arr);
+        s.recursiveSelectionSort(arr, 0);
+        System.out.print("After sorting: ");
+        s.print(arr);
+        System.out.println("#################################################\n\n\n");
+        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
+        System.out.println("#################################################");
+        System.out.println("Task 2: Sort and array recursively using  Insertion Sort algorithm");
+        System.out.print("Unsorted array: ");
+        s.print(arr);
+        s.recursiveInsertionSort(arr, 1);
+        System.out.print("After sorting: ");
+        s.print(arr);
+        System.out.println("#################################################\n\n\n");
+        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
+        Node head = new Node(0);
+        Node dummy = head;
+        for (int i = 0; i < arr.length; i++) {
+            dummy.next = new Node(arr[i]);
+            dummy = dummy.next;
+        }
+        head = head.next;
+        System.out.println("#################################################");
+        System.out.println("Task 3: Sort a Singly Linked List using Bubble Sort algorithms");
+        System.out.print("Unsorted List: ");
+        s.print(head);
+        s.singlyListBubbleSort(head);
+        System.out.print("After Sorting: ");
+        s.print(head);
+        System.out.println("#################################################\n\n\n");
+        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
+        head = new Node(0);
+        dummy = head;
+        for (int i = 0; i < arr.length; i++) {
+            dummy.next = new Node(arr[i]);
+            dummy = dummy.next;
+        }
+        head = head.next;
+        System.out.println("#################################################");
+        System.out.println("Task 4: Sort a Singly Linked List using Selections Sort algorithms");
+        System.out.print("Unsorted List: ");
+        s.print(head);
+        s.singlyListSelectionSort(head);
+        System.out.print("After Sorting: ");
+        s.print(head);
+        System.out.println("#################################################\n\n\n");
+        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
+        DoublyNode doublyHead = new DoublyNode(0);
+        DoublyNode doublyDummy = doublyHead;
+        for (int i = 0; i < arr.length; i++) {
+            doublyDummy.next = new DoublyNode(arr[i]);
+            doublyDummy.next.prev = doublyDummy;
+            doublyDummy = doublyDummy.next;
+        }
+        doublyHead = doublyHead.next;
+        doublyHead.prev = null;
+        System.out.println("#################################################");
+        System.out.println("Task 5: Sort a Doubly Linked List using Insertion Sort Algorithm");
+        System.out.print("Unsorted List: ");
+        s.print(doublyHead);
+        s.doublyListInsertionSort(doublyHead);
+        System.out.print("After Sorting: ");
+        s.print(doublyHead);
+        System.out.println("#################################################\n\n\n");
+        arr = new int[]{4, 5, 1, 3, 4, 6, 3, 6, 12, 3, 5, 33, 2};
+        int target = 6;
+        s.recursiveSelectionSort(arr, 0);
+        System.out.println("#################################################");
+        System.out.println("Task 6: Implement a Binary Search algorithm recursively");
+        System.out.print("Our Desired array: ");
+        s.print(arr);
+        System.out.println("And Target Node: " + target);
+        System.out.print("The index of the element " + target + " is: ");
+        System.out.println(s.binarySearch(arr, 0, arr.length - 1, target));
+        System.out.println("#################################################\n\n\n");
+        System.out.println("#################################################");
+        System.out.println("Task 7: Implement a recursive algorithm to find the n-th fibonacci number using memoization");
+        int n = 13;
+        System.out.print(13 + "th fibonacci number is: ");
+        System.out.println(s.nThFibonacci(n));
+        System.out.println("#################################################\n\n\n");
     }
 
     private void print(int[] arr) {
@@ -61,16 +97,17 @@ public class SortingAlgorithms {
 
     private void print(Node head) {
         for (Node cur = head; cur != null; cur = cur.next) {
-            System.out.print(cur.val + " ");
+            System.out.print(cur.val + " -> ");
         }
-        System.out.println();
+        System.out.println("null");
     }
 
     private void print(DoublyNode head) {
+        System.out.print("null ");
         for (DoublyNode cur = head; cur != null; cur = cur.next) {
-            System.out.print(cur.val + " ");
+            System.out.print(cur.val + " <-> ");
         }
-        System.out.println();
+        System.out.println("null");
     }
 
     public void recursiveSelectionSort(int[] arr, int index) {
@@ -206,3 +243,63 @@ class DoublyNode {
         next = null;
     }
 }
+
+/**
+ * Output of the Tester Class
+ *
+ * #################################################
+ * Task 1: Sort and array Recursively using  Selection Sort algorithm
+ * Unsorted array: 4 5 1 3 4 6 3 6 12 3 5 33 2
+ * After sorting: 1 2 3 3 3 4 4 5 5 6 6 12 33
+ * #################################################
+ *
+ *
+ *
+ * #################################################
+ * Task 2: Sort and array recursively using  Insertion Sort algorithm
+ * Unsorted array: 4 5 1 3 4 6 3 6 12 3 5 33 2
+ * After sorting: 1 2 3 3 3 4 4 5 5 6 6 12 33
+ * #################################################
+ *
+ *
+ *
+ * #################################################
+ * Task 3: Sort a Singly Linked List using Bubble Sort algorithms
+ * Unsorted List: 4 -> 5 -> 1 -> 3 -> 4 -> 6 -> 3 -> 6 -> 12 -> 3 -> 5 -> 33 -> 2 -> null
+ * After Sorting: 1 -> 2 -> 3 -> 3 -> 3 -> 4 -> 4 -> 5 -> 5 -> 6 -> 6 -> 12 -> 33 -> null
+ * #################################################
+ *
+ *
+ *
+ * #################################################
+ * Task 4: Sort a Singly Linked List using Selections Sort algorithms
+ * Unsorted List: 4 -> 5 -> 1 -> 3 -> 4 -> 6 -> 3 -> 6 -> 12 -> 3 -> 5 -> 33 -> 2 -> null
+ * After Sorting: 1 -> 2 -> 3 -> 3 -> 3 -> 4 -> 4 -> 5 -> 5 -> 6 -> 6 -> 12 -> 33 -> null
+ * #################################################
+ *
+ *
+ *
+ * #################################################
+ * Task 5: Sort a Doubly Linked List using Insertion Sort Algorithm
+ * Unsorted List: null 4 <-> 5 <-> 1 <-> 3 <-> 4 <-> 6 <-> 3 <-> 6 <-> 12 <-> 3 <-> 5 <-> 33 <-> 2 <-> null
+ * After Sorting: null 1 <-> 2 <-> 3 <-> 3 <-> 3 <-> 4 <-> 4 <-> 5 <-> 5 <-> 6 <-> 6 <-> 12 <-> 33 <-> null
+ * #################################################
+ *
+ *
+ *
+ * #################################################
+ * Task 6: Implement a Binary Search algorithm recursively
+ * Our Desired array: 1 2 3 3 3 4 4 5 5 6 6 12 33
+ * And Target Node: 6
+ * The index of the element 6 is: 9
+ * #################################################
+ *
+ *
+ *
+ * #################################################
+ * Task 7: Implement a recursive algorithm to find the n-th fibonacci number using memoization
+ * 13th fibonacci number is: 144
+ * #################################################
+ *
+ * Process finished with exit code 0
+ */
