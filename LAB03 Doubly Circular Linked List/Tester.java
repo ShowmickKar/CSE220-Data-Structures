@@ -1,6 +1,11 @@
+/*
+    CSE220: Data Structures
+    LAB03: Doubly Linked Circular List
+ */
+
 public class Tester {
     public static void main(String[] args) {
-        int[] arr = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7 };
         // Creating an instance of a Doubly Linked Circular List
         DoublyLinkedList list = new DoublyLinkedList(arr);
         // Show List Method

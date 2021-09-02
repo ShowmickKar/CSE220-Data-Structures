@@ -1,8 +1,13 @@
+/*
+    CSE220: Data Structures
+    LAB02: Singly Linked Lists
+ */
+
 public class LinkedListTester {
     public static void main(String[] args) {
         /* created a Linked List Object */
         System.out.println("Created a Linked List with the elements - 1, 2, 3, 4, 5");
-        int[] arr = new int[]{1, 2, 3, 4, 5};
+        int[] arr = new int[] { 1, 2, 3, 4, 5 };
         LinkedList list = new LinkedList(arr);
 
         /* Tested the show list method */
@@ -21,7 +26,7 @@ public class LinkedListTester {
 
         /* Tested the insert method */
         System.out.println("Insert a new Node at the end of Linked List: input = 1->2->3->4->5-> ; insert: 6");
-        arr = new int[]{1, 2, 3, 4, 5};
+        arr = new int[] { 1, 2, 3, 4, 5 };
         list = new LinkedList(arr);
         list.insert(new Node(6));
         list.showList();
@@ -41,12 +46,12 @@ public class LinkedListTester {
 
         // Find even numbers
         System.out.println("Find even numbers and crated a new Linked List from them: ");
-        arr = new int[]{1, 2, 5, 3, 8};
+        arr = new int[] { 1, 2, 5, 3, 8 };
         list = new LinkedList(arr);
         list.showList();
         LinkedList evenList = list.findEvenNumbers();
         evenList.showList();
-        arr = new int[]{101, 120, 25, 91, 87, 1};
+        arr = new int[] { 101, 120, 25, 91, 87, 1 };
         list = new LinkedList(arr);
         list.showList();
         evenList = list.findEvenNumbers();
@@ -54,12 +59,12 @@ public class LinkedListTester {
 
         // Find if an element exists in the list or not
         System.out.print("Check if a key exists in the Linked List: ");
-        arr = new int[]{1, 2, 5, 3, 8};
+        arr = new int[] { 1, 2, 5, 3, 8 };
         list = new LinkedList(arr);
         list.showList();
         System.out.println("Checking for 7: ");
         System.out.println(list.isPresent(7));
-        arr = new int[]{101, 120, 25, 91, 87, 1};
+        arr = new int[] { 101, 120, 25, 91, 87, 1 };
         list = new LinkedList(arr);
         list.showList();
         System.out.println("Checking for: 1");
@@ -67,7 +72,7 @@ public class LinkedListTester {
 
         // Reverse the List
         System.out.println("Reverse a Linked List");
-        arr = new int[]{1, 2, 5, 3, 8};
+        arr = new int[] { 1, 2, 5, 3, 8 };
         list = new LinkedList(arr);
         list.showList();
         list.reverse();
@@ -75,7 +80,7 @@ public class LinkedListTester {
 
         // sort the list
         System.out.println("Sort a Linked List");
-        arr = new int[]{1, 2, 5, 3, 8};
+        arr = new int[] { 1, 2, 5, 3, 8 };
         list = new LinkedList(arr);
         list.showList();
         list.sort();
@@ -83,7 +88,7 @@ public class LinkedListTester {
 
         // print sum of list elements
         System.out.println("Print the sum of all element in a linked list");
-        arr = new int[]{1, 2, 5, 3, 8};
+        arr = new int[] { 1, 2, 5, 3, 8 };
         list = new LinkedList(arr);
         list.showList();
         list.printSum();
@@ -93,7 +98,7 @@ public class LinkedListTester {
 
         // left rotate
         System.out.println("Left rotating a linked list");
-        arr = new int[]{3, 2, 5, 1, 8};
+        arr = new int[] { 3, 2, 5, 1, 8 };
         list = new LinkedList(arr);
         list.showList();
         list.rotate("left", 2);
@@ -101,7 +106,7 @@ public class LinkedListTester {
 
         // right rotate
         System.out.println("Right rotating a linked list");
-        arr = new int[]{3, 2, 5, 1, 8};
+        arr = new int[] { 3, 2, 5, 1, 8 };
         list = new LinkedList(arr);
         list.showList();
         list.rotate("right", 2);

@@ -1,3 +1,9 @@
+/*
+    CSE220: Data Structures
+    LAB05: Recursion
+ */
+
+
 import java.util.Scanner;
 
 public class Recursion {

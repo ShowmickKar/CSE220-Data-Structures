@@ -17,29 +17,29 @@ public class Array {
         // 1
         System.out.println("Linear Arrays: ");
         System.out.println("Problem 1: Shift Left k Cells");
-        int[] arr = {10, 20, 30, 40, 50, 60};
+        int[] arr = { 10, 20, 30, 40, 50, 60 };
         shiftLeft(arr, 3);
         print(arr);
         // 2
         System.out.println("Problem 2: Rotate Left k cells");
-        arr = new int[]{10, 20, 30, 40, 50, 60};
+        arr = new int[] { 10, 20, 30, 40, 50, 60 };
         rotateLeft(arr, 3);
         print(arr);
         // 3
         System.out.println("Problem 3: Remove an element from an array");
-        arr = new int[]{10, 20, 30, 40, 50, 0, 0};
+        arr = new int[] { 10, 20, 30, 40, 50, 0, 0 };
         remove(arr, 5, 2);
         print(arr);
         // 4
         System.out.println("Problem 4: Remove all occurrences of a particular element from an array");
-        arr = new int[]{10, 2, 30, 2, 50, 2, 2, 0, 0};
+        arr = new int[] { 10, 2, 30, 2, 50, 2, 2, 0, 0 };
         removeAll(arr, 7, 2);
         print(arr);
         // 5
         System.out.println("Problem 5: Splitting an Array");
-        int[] arr1 = {1, 1, 1, 2, 1};
-        int[] arr2 = {12, 1, 1, 2, 1};
-        int[] arr3 = {10, 3, 1, 2, 10};
+        int[] arr1 = { 1, 1, 1, 2, 1 };
+        int[] arr2 = { 12, 1, 1, 2, 1 };
+        int[] arr3 = { 10, 3, 1, 2, 10 };
         System.out.println(splitArray(arr1));
         System.out.println(splitArray(arr2));
         System.out.println(splitArray(arr3));
@@ -54,28 +54,28 @@ public class Array {
         print(arr3);
         // 7
         System.out.println("Problem 7: Max Bunch Count");
-        arr1 = new int[]{1, 2, 2, 3, 4, 4, 4};
-        arr2 = new int[]{1, 1, 2, 2, 1, 1, 1, 1};
+        arr1 = new int[] { 1, 2, 2, 3, 4, 4, 4 };
+        arr2 = new int[] { 1, 1, 2, 2, 1, 1, 1, 1 };
         System.out.println(maxBunchCount(arr1));
         System.out.println(maxBunchCount(arr2));
         // 8
         System.out.println("Problem 8: Repetition");
-        arr1 = new int[]{4, 5, 6, 6, 4, 3, 6, 4};
-        arr2 = new int[]{3, 4, 6, 3, 4, 7, 4, 6, 8, 6, 6};
+        arr1 = new int[] { 4, 5, 6, 6, 4, 3, 6, 4 };
+        arr2 = new int[] { 3, 4, 6, 3, 4, 7, 4, 6, 8, 6, 6 };
         System.out.println(repetition(arr1));
         System.out.println(repetition(arr2));
         /* Circular Arrays */
         // 1
         System.out.println("Circular Arrays: ");
         System.out.println("Problem 1: Palindrome");
-        arr1 = new int[]{20, 10, 0, 0, 0, 10, 20, 30};
-        arr2 = new int[]{10, 20, 0, 0, 0, 10, 20, 30};
+        arr1 = new int[] { 20, 10, 0, 0, 0, 10, 20, 30 };
+        arr2 = new int[] { 10, 20, 0, 0, 0, 10, 20, 30 };
         System.out.println(palindrome(arr1, 5, 5));
         System.out.println(palindrome(arr2, 5, 5));
         // 2
         System.out.println("Problem 2: Intersection");
-        arr1 = new int[]{40, 50, 0, 0, 0, 10, 20, 30};
-        arr2 = new int[]{10, 20, 5, 0, 0, 0, 0, 0, 5, 40, 15, 25};
+        arr1 = new int[] { 40, 50, 0, 0, 0, 10, 20, 30 };
+        arr2 = new int[] { 10, 20, 5, 0, 0, 0, 0, 0, 5, 40, 15, 25 };
         int[] commonElements = intersection(arr1, 5, 5, arr2, 8, 7);
         print(commonElements);
         // 3
@@ -200,7 +200,8 @@ public class Array {
 
     // Problem 07 - Max Bunch Count
     public static int maxBunchCount(int[] arr) {
-        if (arr.length == 0) return 0;
+        if (arr.length == 0)
+            return 0;
         int current = 1, best = 1;
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] == arr[i - 1]) {
@@ -225,7 +226,8 @@ public class Array {
         }
         HashSet<Integer> s = new HashSet<Integer>();
         for (int value : freq.values()) {
-            if (value == 1) continue;
+            if (value == 1)
+                continue;
             if (s.contains(value)) {
                 return true;
             }
@@ -289,7 +291,7 @@ public class Array {
     // Problem 03
     public static void musicalChairGame() {
         Random random = new Random();
-        int[] participants = new int[]{1, 2, 3, 4, 5, 6, 7};
+        int[] participants = new int[] { 1, 2, 3, 4, 5, 6, 7 };
         int numberOfParticipants = 7;
         while (numberOfParticipants > 1) {
             int number = random.nextInt(4);
