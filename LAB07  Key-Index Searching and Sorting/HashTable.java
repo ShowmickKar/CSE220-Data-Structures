@@ -10,7 +10,6 @@ public class HashTable {
         values = new String[m];
         for (int i = 0; i < arr.length; i++) {
             int key = hash(arr[i]);
-            System.out.println("Hash of " + arr[i] + ": " + key);
             String val = arr[i];
             put(key, val);
         }
