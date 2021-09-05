@@ -36,19 +36,25 @@ public class HashTable {
 
     public void put(int key, String val) {
         int i = key;
-        while (i < keys.length && keys[i] != null) {
-            if (Integer.parseInt(keys[i]) == key) {
-                values[i] = val;
+        while (i < keys.length && keys[i] != "" && keys[i] != null) {
+            try {
+                if (Integer.parseInt(keys[i]) == key) {
+                    values[i] = val;
+                }
+            } catch (NumberFormatException e) {
             }
             i++;
         }
-        keys[i] = String.valueOf((char) key);
+        try {
+            keys[i] = String.valueOf((char) key);
+        } catch (Exception e) {
+        }
         values[i] = val;
     }
 
     public boolean search(String key) {
-        for (int i = hash(key); keys[i] != null && i < keys.length; i++) {
-
+        System.out.print("Checking if " + key + " is present in the hashtable: ");
+        for (int i = hash(key); i < keys.length; i++) {
             if (values[i] == key) {
                 return true;
             }

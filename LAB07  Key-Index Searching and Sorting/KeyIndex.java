@@ -18,6 +18,7 @@ public class KeyIndex {
     }
 
     public boolean search(int key) {
+        System.out.print("Checking if " + key + " is present in the key-index array: ");
         return (key >= 0 ? (auxiliary[key] > 0) : (auxiliary[-key + m + 1] > 0));
     }
 
