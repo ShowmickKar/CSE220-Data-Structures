@@ -3,15 +3,15 @@
 ## Definition of a Tree Node
 ``` java
     public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-    public TreeNode(int n) {
-        val = n;
-        left = null;
-        right = null;
+        int val;
+        TreeNode left;
+        TreeNode right;
+        public TreeNode(int n) {
+            val = n;
+            left = null;
+            right = null;
+        }
     }
-}
 ```
 
 ## Problem 01: RECURSIVELY calculate the height of a tree.
