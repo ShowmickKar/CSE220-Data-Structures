@@ -39,13 +39,11 @@
 ## Problem 02: RECURSIVELY calculate the level of a Node in a tree.
 ``` java
     private int levelOfNodeHelper(TreeNode root, TreeNode target, int level) {
-        if (root == null) return 0;
+        if (root == null) return -1;
         if (root.val == target.val) return level;
-        int leftSubtree = levelOfNodeHelper(root.left, target, level);
-        if (leftSubtree > 0) return leftSubtree;
-        int rightSubtree = levelOfNodeHelper(root.right, target, level);
-        if (rightSubtree > 0) return rightSubtree;
-        return 0;
+        int leftSubtree = levelOfNodeHelper(root.left, target, level + 1);
+        if (leftSubtree > -1) return leftSubtree;
+        return levelOfNodeHelper(root.right, target, level + 1);
     }
 
     public int levelOfNode(TreeNode root, TreeNode target) {
