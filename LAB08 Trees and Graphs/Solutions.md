@@ -84,13 +84,12 @@
 
 ## Problem 07: Write a method which will return a copy (new tree) of a given tree.
 ``` java
-    private TreeNode copyTreeHelper(TreeNode root, TreeNode newRoot) {
-
-    }
-
     public TreeNode copyTree(TreeNode root) {
         if (root == null) return null;
         TreeNode newRoot = new TreeNode(root.val);
+        newRoot.left = copyTree(root.left);
+        newRoot.right = copyTree(root.right);
+        return newRoot;
     }
 ```
 
