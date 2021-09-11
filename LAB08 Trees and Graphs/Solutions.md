@@ -14,7 +14,7 @@
     }
 ```
 
-## Assuming this is out input tree
+## Assuming this is the input tree
 ```
                1 
               / \
