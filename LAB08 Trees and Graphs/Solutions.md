@@ -95,3 +95,4 @@
 ```
 
 ## Problem 08: An adjacency matrix is given below. Draw the equivalent graph.
+<img src="graph.jpeg" width="500">
