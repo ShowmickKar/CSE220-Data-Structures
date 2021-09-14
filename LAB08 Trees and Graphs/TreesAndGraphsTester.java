@@ -9,7 +9,7 @@ public class TreesAndGraphsTester {
         root.left.left.left = new TreeNode(5);
         root.left.right = new TreeNode(8);
         root.right.right = new TreeNode(10);
-        // height of tree(assuming we start counting height from zero)
+        // height of tree
         System.out.println("\n################################");
         System.out.println("Problem 01: RECURSIVELY calculate the height of a tree");
         System.out.println("################################");
@@ -94,7 +94,7 @@ public class TreesAndGraphsTester {
 
     private int dfs(TreeNode root, int height) {
         if (root == null) return height;
-        return Math.max(dfs(root.left, height), dfs(root.right, height + 1));
+        return Math.max(dfs(root.left, height + 1), dfs(root.right, height + 1));
     }
 
     public int heightOfTree(TreeNode root) {
@@ -110,7 +110,7 @@ public class TreesAndGraphsTester {
     }
 
     public int levelOfNode(TreeNode root, TreeNode target) {
-        // will return 0 if the target node is not present int the binary tree
+        // will return -1 if the target node is not present int the binary tree
         return levelOfNodeHelper(root, target, 0);
     }
 
@@ -160,56 +160,3 @@ class TreeNode {
         right = null;
     }
 }
-
-/*
-Here is the output
-
-################################
-Tree Display
-################################
-       1
-      / \
-     2   3
-    / \   \
-   4   8   10
-  /
- 5
-
-################################
-Problem 01: RECURSIVELY calculate the height of a tree
-################################
-The height of the tree is 3
-
-################################
-Problem 02: RECURSIVELY calculate the level of a Node in a tree
-################################
-The level of node with value 8 is: 2
-
-################################
-Problem 03: Print elements of all the Nodes of a tree using Pre-order Traversal
-################################
-Preorder Traversal: 1 2 4 5 8 3 10 
-
-################################
-Problem 04: Print elements of all the Nodes of a tree using In-order Traversal
-################################
-Inorder Traversal: 5 4 2 8 1 3 10 
-
-################################
-Problem 05: Print elements of all the Nodes of a tree using Post-order Traversal
-################################
-Postorder Traversal: 5 4 8 2 10 3 1 
-
-################################
-Problem 06: Write a method which will evaluate whether two trees are exactly same or not
-################################
-Same Tree: true
-Same Tree: false
-
-################################
-Problem 07: Write a method which will return a copy (new tree) of a given tree
-################################
-Initial Tree: 1 2 4 5 8 3 10 
-Copied new Tree: 1 2 4 5 8 3 10 
-
-*/
