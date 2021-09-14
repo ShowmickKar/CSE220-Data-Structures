@@ -108,7 +108,7 @@
 ## For testing purpose all the code including the tester class has been attached below  
 
 ``` java
-    public class TreesAndGraphsTester {
+public class TreesAndGraphsTester {
     public static void main(String[] args) {
         TreesAndGraphsTester tester = new TreesAndGraphsTester();
         displayTree();
@@ -119,7 +119,7 @@
         root.left.left.left = new TreeNode(5);
         root.left.right = new TreeNode(8);
         root.right.right = new TreeNode(10);
-        // height of tree(assuming we start counting height from zero)
+        // height of tree
         System.out.println("\n################################");
         System.out.println("Problem 01: RECURSIVELY calculate the height of a tree");
         System.out.println("################################");
@@ -204,7 +204,7 @@
 
     private int dfs(TreeNode root, int height) {
         if (root == null) return height;
-        return Math.max(dfs(root.left, height), dfs(root.right, height + 1));
+        return Math.max(dfs(root.left, height + 1), dfs(root.right, height + 1));
     }
 
     public int heightOfTree(TreeNode root) {
@@ -220,7 +220,7 @@
     }
 
     public int levelOfNode(TreeNode root, TreeNode target) {
-        // will return 0 if the target node is not present int the binary tree
+        // will return -1 if the target node is not present int the binary tree
         return levelOfNodeHelper(root, target, 0);
     }
 
@@ -270,6 +270,7 @@ class TreeNode {
         right = null;
     }
 }
+
 ```
 
 ## Here is the output
@@ -288,7 +289,7 @@ Tree Display
 ################################
 Problem 01: RECURSIVELY calculate the height of a tree
 ################################
-The height of the tree is 3
+The height of the tree is 4
 
 ################################
 Problem 02: RECURSIVELY calculate the level of a Node in a tree
