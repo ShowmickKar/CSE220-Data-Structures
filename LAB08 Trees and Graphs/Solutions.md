@@ -29,7 +29,7 @@
 ``` java
     private int dfs(TreeNode root, int height) {
         if (root == null) return height;
-        return Math.max(dfs(root.left, height), dfs(root.right, height + 1));
+        return Math.max(dfs(root.left, height + 1), dfs(root.right, height + 1));
     }
 
     public int heightOfTree(TreeNode root) {
@@ -47,8 +47,8 @@
     }
 
     public int levelOfNode(TreeNode root, TreeNode target) {
-        // will return 0 if the target node is not present int the binary tree
-        return levelOfNodeHelper(root, target, 1);
+        // will return -1 if the target node is not present int the binary tree
+        return levelOfNodeHelper(root, target, 0);
     }
 ```
 
